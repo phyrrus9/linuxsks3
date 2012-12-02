@@ -1,0 +1,23 @@
+#! /bin/sh
+echo "What is the base path?"
+echo "Just enter ~ if you do not know"
+read base
+cd $base
+sudo apt-get install git
+echo "Downloading libraries"
+git clone http://github.com/phyrrus9/streamlib
+git clone http://github.com/phyrrus9/nwin
+sudo apt-get install libncurses5-dev
+echo "Cloning SKS3"
+git clone http://github.com/phyrrus9/SKS3
+echo "compiling libraries"
+cd streamlib
+make
+cp stream.a $base/SKS3/SKS3/engine/streamlib/
+cd $base/nwin
+g++ -c nwin.cpp -o nwin.o
+ar rcs libnwin.a nwin.o
+cp libnwin.a $base/SKS3/SKS3/engine/nwin/
+echo "Compiling sks3"
+cd $base/SKS3
+make
