@@ -1,6 +1,6 @@
 #! /bin/sh
 echo "What is the base path?"
-echo "Just enter ~ if you do not know"
+echo "Just enter /home/<username> or /Users/<username> for mac if you do not know"
 read base
 cd $base
 sudo apt-get install git
