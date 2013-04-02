@@ -18,6 +18,9 @@ cd $base/nwin
 g++ -c nwin.cpp -o nwin.o
 ar rcs libnwin.a nwin.o
 cp libnwin.a $base/SKS3/SKS3/engine/nwin/
+echo "What branch would you like to compile? (master/testing/alpha)"
+read branch
 echo "Compiling sks3"
 cd $base/SKS3
+git checkout $branch
 make
